@@ -70,9 +70,9 @@ public class Input {
 	
 	public int continueBuyTicket() {
 		// 발권 진행 여부 입력받기
-		System.out.println("계속 발권하시겠습니까?\n"
-				+ "1. 티켓 발권\n"
-				+ "2. 종료");
+		System.out.println("계속 발권주문을 하시겠습니까?\n"
+				+ "1. 주문하기\n"
+				+ "2. 계산하기");
 		return stdIn.nextInt();
 	}
 	

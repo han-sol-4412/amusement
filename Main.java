@@ -8,10 +8,10 @@ public class Main {
 		ProcessingAgeGroup ag = new ProcessingAgeGroup();
 		ProcessingOriginPrice op = new ProcessingOriginPrice();
 		ProcessingDiscount discount = new ProcessingDiscount();
-		CalculatorEachPrice price = new CalculatorEachPrice();
+		CalculatorPrice price = new CalculatorPrice();
 		OutputPrint print = new OutputPrint();
-		SaveValue saveV;
-		
+		SaveValue[] saveV = new SaveValue[10];
+		int count =0;
 		while(true) {
 			int ticketType = in.ticketType();
 			String idNum = in.idNum();
@@ -26,14 +26,22 @@ public class Main {
 			int finalPrice = price.eachPrice(originalPrice, ticketCount, discountRate);
 			
 			//결과값 저장하기
-			saveV = new SaveValue(ticketType,agecode,ticketCount,originalPrice,discountCode,finalPrice);
-			print.printEachPrice(saveV);
+			saveV[count] = new SaveValue(ticketType,agecode,ticketCount,originalPrice,discountCode,finalPrice);
+			print.printEachPrice(saveV[count]);
+			count++;
 			
 			int continueBuyTicket;
 			continueBuyTicket = in.continueBuyTicket();
 			if(continueBuyTicket==2) break;
 		}
 		
+		int totalPrice = 0;
+		print.header();
+		for(int i=0; i<count; i++) {
+			print.totalInfo(saveV[i]);
+			totalPrice+=saveV[i].finalPrice;
+		}
+		print.totalPrice(totalPrice);
 		
 	}
 

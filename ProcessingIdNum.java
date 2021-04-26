@@ -7,9 +7,6 @@ import java.util.Calendar;
 public class ProcessingIdNum {
 	//주민등록번호에서 생일 년도 처리하기
 	public int birth(String idNum) {
-		if(idNum.length()!=13) {
-			return 0;
-		}
 		if(idNum.substring(6, 7).equals("1") || idNum.substring(6, 7).equals("2")) {
 			return 1900 + Integer.parseInt( idNum.substring(0, 2));
 		} else {
