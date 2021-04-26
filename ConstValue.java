@@ -15,10 +15,20 @@ public class ConstValue {
 	final static int CHILD_NiGHT_PRICE = 37000;
 	final static int OLD_NiGHT_PRICE = 37000;
 	
+	
+	
+	//우대할인 코드
+	final static int NO_DISCOUNT_CODE = 1; 
+	final static int DISABLE_DISCOUNT_CODE = 2; 
+	final static int MERIT_DISCOUNT_CODE = 3;
+	final static int MULTICHILD_DISCOUNT_CODE = 4;
+	final static int PREGNANT_DISCOUNT_CODE = 5;
+	
 	//우대 할인율
 	final static double DISABLE_DISCOUNT_RATE = 0.4; 
 	final static double MERIT_DISCOUNT_RATE = 0.5;
 	final static double MULTICHILD_DISCOUNT_RATE = 0.2;
 	final static double PREGNANT_DISCOUNT_RATE = 0.15;
+	
 
 }
