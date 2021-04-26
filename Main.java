@@ -1,8 +1,12 @@
 package amusement;
 
+import java.io.IOException;
+
+import kyd.FileOutput;
+
 public class Main {
 	//메인클래스
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException{
 		Input in = new Input();
 		ProcessingIdNum idnum = new ProcessingIdNum();
 		ProcessingAgeGroup ag = new ProcessingAgeGroup();
@@ -10,6 +14,7 @@ public class Main {
 		ProcessingDiscount discount = new ProcessingDiscount();
 		CalculatorPrice price = new CalculatorPrice();
 		OutputPrint print = new OutputPrint();
+		OutputFile fw = new OutputFile();
 		SaveValue[] saveV = new SaveValue[10];
 		int count =0;
 		while(true) {
@@ -28,11 +33,19 @@ public class Main {
 			//결과값 저장하기
 			saveV[count] = new SaveValue(ticketType,agecode,ticketCount,originalPrice,discountCode,finalPrice);
 			print.printEachPrice(saveV[count]);
+			
+			fw = new OutputFile();
+			fw.headerWrite();
+			fw.dataWrite(saveV[count]);
+			fw.fileClose();
 			count++;
 			
 			int continueBuyTicket;
 			continueBuyTicket = in.continueBuyTicket();
 			if(continueBuyTicket==2) break;
+			
+			
+			
 		}
 		
 		int totalPrice = 0;
