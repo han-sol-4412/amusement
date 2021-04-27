@@ -78,5 +78,6 @@ public class Input {
 		}
 		return Integer.parseInt(continueValue);
 	}
+
 	
 }
