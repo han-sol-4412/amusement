@@ -77,7 +77,5 @@ public class Input {
 			continueValue =  this.continueBuyTicket()+"";
 		}
 		return Integer.parseInt(continueValue);
-	}
-
-	
+	}	
 }

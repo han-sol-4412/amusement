@@ -10,6 +10,7 @@ public class SaveValue {
 	
 	//생성자로 값 저장하기
 	public SaveValue(int ticketTypeCode, int ageCode, int ticketCount, int originalPrice, int discountCode, int finalPrice) {
+		
 		if(ticketTypeCode==ConstValue.DAY_CODE) {
 			this.ticketTypeCode = "주간권";
 		} else {
@@ -42,6 +43,7 @@ public class SaveValue {
 		} else {
 			discountType="없음";
 		}
+		
 		this.finalPrice = finalPrice;
 	}
 	

@@ -17,7 +17,7 @@ public class OutputFile {
 	
 	public OutputFile() throws IOException{
 		File file = new File(ConstValue.FILEPATH);
-		if(file.exists() ) { //존재하면
+		if(file.exists()) { //존재하면
 			isFileExist = true; 
 		} else {
 			isFileExist = false;
@@ -33,12 +33,9 @@ public class OutputFile {
 	}
 	
 	public void dataWrite(SaveValue saveV) throws IOException{ //데이터 쓰기
-		
 		SimpleDateFormat sdt = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss"); 
 		Calendar calt = Calendar.getInstance(); 
-		
-		
-		
+	
 		String s = sdt.format(calt.getTime())+","+saveV.ticketTypeCode+","+saveV.ageCode+","+saveV.ticketCount+","+saveV.finalPrice+","+saveV.discountType+"\n";
 		writer.write(s);	
 	}

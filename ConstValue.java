@@ -4,10 +4,11 @@ import java.util.Calendar;
 
 //상수 클래스
 public class ConstValue {
-	
-	
+	//권종 구분 코드
 	final static int DAY_CODE = 1;
 	final static int NIGHT_CODE = 2;
+	
+	final static int CALCULATE_EXIT = 2; //계산하고 종료하는 코드
 	
 	//나이 구분 코드
 	final static int ADULT_CODE = 1;
@@ -29,7 +30,6 @@ public class ConstValue {
 	final static int OLD_NiGHT_PRICE = 37000;
 	final static int BABY_NiGHT_PRICE = 0;
 	
-	
 	//우대할인 코드
 	final static int NO_DISCOUNT_CODE = 1; 
 	final static int DISABLE_DISCOUNT_CODE = 2; 
@@ -44,6 +44,6 @@ public class ConstValue {
 	final static double PREGNANT_DISCOUNT_RATE = 0.15;
 	
 	//파일저장 경로
-	final static String FILEPATH = "C:\\Users\\sol\\Desktop\\amusement.csv";
+	final static String FILEPATH = "C:\\Users\\hanso\\OneDrive\\바탕 화면\\amusement.csv";
 
 }
