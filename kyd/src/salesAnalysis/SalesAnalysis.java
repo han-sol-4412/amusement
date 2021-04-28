@@ -11,6 +11,12 @@ import java.util.HashSet;
 public class SalesAnalysis {
 	public static ArrayList<String> data = new ArrayList<String>();
 	public static String[][] dataArray;
+	public static PrintSales print;
+	
+	public SalesAnalysis() {
+		print = new PrintSales();
+	}
+
 	public void readFile() throws IOException{
 		FileInputStream fileInputStream = new FileInputStream("C:\\Users\\sol\\Desktop\\amusement.csv");
 		InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "MS949");
@@ -18,7 +24,6 @@ public class SalesAnalysis {
 		
 		String line;
 		while((line = reader.readLine()) != null) {
-			//System.out.println(line);
 			data.add(line);
 		}
 		dataArray = new String[data.size()][];
@@ -28,16 +33,7 @@ public class SalesAnalysis {
 	}
 	
 	public void fullInfo() {
-		System.out.println("-------------------------------------amusement.csv------------------------------------------");
-		System.out.printf("%s\t\t%s\t\t%s\t%s\t\t%s\t\t%s\n",
-				dataArray[0][0],dataArray[0][1],dataArray[0][2],dataArray[0][3],dataArray[0][4],dataArray[0][5]);
-		
-		
-		for(int i=1; i<data.size(); i++) {
-			System.out.printf("%s\t%s\t\t%s\t\t%s\t\t%s\t\t%s\n",
-					dataArray[i][0],dataArray[i][1],dataArray[i][2],dataArray[i][3],dataArray[i][4],dataArray[i][5]);
-		}
-		System.out.println("--------------------------------------------------------------------------------------------");
+		print.fullInfo(data,dataArray);
 	}
 	
 	public void ticketType_age() {
@@ -60,7 +56,7 @@ public class SalesAnalysis {
 		
 		for(int i=1; i<data.size(); i++) {
 			if(dataArray[i][1].equals("주간권")) {
-				day_cnt++;
+				day_cnt+= Integer.parseInt(dataArray[i][3]);
 				day_price += Integer.parseInt(dataArray[i][4]);
 				if(dataArray[i][2].equals("대인")) {
 					adult_day+= Integer.parseInt(dataArray[i][3]);
@@ -74,7 +70,7 @@ public class SalesAnalysis {
 					baby_day+= Integer.parseInt(dataArray[i][3]);
 				}
 			} else {
-				night_cnt++;
+				night_cnt+= Integer.parseInt(dataArray[i][3]);
 				night_price += Integer.parseInt(dataArray[i][4]);
 				if(dataArray[i][2].equals("대인")) {
 					adult_night+= Integer.parseInt(dataArray[i][3]);
@@ -90,16 +86,9 @@ public class SalesAnalysis {
 			}
 		}
 		
-		System.out.println("\n------------------------------------권종별 매출현황-----------------------------------------");
-		System.out.println("주간원 총 "+day_cnt+"매");
-		System.out.printf("유아 %d매\t 어린이 %d매\t 청소년 %d매\t 어른 %d매\t 노인 %d매\n",baby_day,child_day,teem_day,adult_day,old_day);
-		System.out.println("주간권 매출 : "+day_price);
-		System.out.println();
-		System.out.println("야간원 총 "+night_cnt+"매");
-		System.out.printf("유아 %d매\t 어린이 %d매\t 청소년 %d매\t 어른 %d매\t 노인 %d매\n",baby_night,child_night,teem_night,adult_night,old_night);
-		System.out.println("야간권 매출 : "+night_price);
-		System.out.println("--------------------------------------------------------------------------------------------");
-		
+		TicketType_Age ta = new TicketType_Age(day_cnt, night_cnt, day_price, night_price, adult_day, teem_day, child_day,
+								old_day, baby_day, adult_night, teem_night, child_night, old_night, baby_night);
+		print.ticketType_age(ta);
 	}
 	
 	public void dateAnalysis() {
@@ -120,13 +109,7 @@ public class SalesAnalysis {
 				}
 			}
 		}
-		
-		System.out.println("\n------------------------------------일자별 판매현황-----------------------------------------");
-		for(int i=0; i<dateData.size(); i++) {
-			System.out.printf("%s년 %s월 %s일 : %d원 \n",(dateData.get(i)+"").substring(0, 4),(dateData.get(i)+"").substring(4, 6),(dateData.get(i)+"").substring(6, 8),totalPrice[i]);
-		}
-		System.out.println("--------------------------------------------------------------------------------------------");
-	
+		print.dateAnalysis(dateData, totalPrice);
 	}
 	
 	public void discountAnalysis() {
@@ -152,16 +135,8 @@ public class SalesAnalysis {
 				}
 		}
 		
-		System.out.println("\n------------------------------------우대권 판매현황-----------------------------------------");
-		System.out.printf("%s\t\t : %d매\n","총 판매 티켓수",totalCnt);
-		System.out.printf("%s\t\t : %d매\n","우대 없음",noDiscount);
-		System.out.printf("%s\t\t\t : %d매\n","장애인",disable);
-		System.out.printf("%s\t\t : %d매\n","국가유공자",merit);
-		System.out.printf("%s\t\t\t : %d매\n","다자녀",multichild);
-		System.out.printf("%s\t\t\t : %d매\n","임산부",pregnant);
-		System.out.println("--------------------------------------------------------------------------------------------");
-		
-		
+		Discount dis = new Discount(totalCnt, noDiscount, disable, merit, multichild, pregnant);
+		print.discountAnalysis(dis);
 	}
 	
 }
