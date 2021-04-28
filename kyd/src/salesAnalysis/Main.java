@@ -12,7 +12,7 @@ public class Main {
 		sale.readFile();
 		sale.fullInfo();
 		sale.ticketType_age();
-
-		
+		sale.dateAnalysis();
+		sale.discountAnalysis();
 	}
 }
