@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+encoding//src/amusement/CalculatorPrice.java=MS949
+encoding//src/amusement/ConstValue.java=MS949
+encoding//src/amusement/DiscountRate.java=MS949
+encoding//src/amusement/Input.java=MS949
+encoding//src/amusement/Main.java=MS949
+encoding//src/amusement/OriginalPrice_By_IdNum.java=MS949
+encoding//src/amusement/OutputFile.java=MS949
+encoding//src/amusement/OutputPrint.java=MS949
+encoding//src/amusement/SaveValue.java=MS949
+encoding//src/salesAnalysis/Discount.java=MS949
+encoding//src/salesAnalysis/Main.java=MS949
+encoding//src/salesAnalysis/PrintSales.java=MS949
+encoding//src/salesAnalysis/SalesAnalysis.java=MS949
+encoding//src/salesAnalysis/TicketType_Age.java=MS949
+encoding/<project>=MS949
