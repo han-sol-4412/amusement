@@ -42,6 +42,6 @@ public class ConstValue {
 	final static double PREGNANT_DISCOUNT_RATE = 0.15;
 	
 	//파일저장 경로
-	final static String FILEPATH = "C:\\Users\\sol\\Desktop\\amusement.csv";
+	final static String FILEPATH = "amusement.csv";
 
 }

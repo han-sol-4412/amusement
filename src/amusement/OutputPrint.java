@@ -11,7 +11,7 @@ public class OutputPrint {
 	
 	public void totalInfo(SaveValue saveV) {
 		System.out.printf("%s  %s  x  %d    %d    *우대적용(%s)\n",
-				saveV.ticketTypeCode, saveV.ageCode, saveV.ticketCount, saveV.originalPrice*saveV.ticketCount, saveV.discountType);
+				saveV.ticketTypeCode, saveV.ageCode, saveV.ticketCount, saveV.finalPrice*saveV.ticketCount, saveV.discountType);
 	}
 	
 	public void totalPrice(int totalPrice) {

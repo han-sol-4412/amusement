@@ -17,7 +17,7 @@ public class SalesAnalysis {
 	}
 
 	public void readFile() throws IOException{
-		FileInputStream fileInputStream = new FileInputStream("C:\\Users\\sol\\Desktop\\amusement.csv");
+		FileInputStream fileInputStream = new FileInputStream("amusement.csv");
 		InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "MS949");
 		BufferedReader reader = new BufferedReader(inputStreamReader);
 		
